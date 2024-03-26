@@ -22,4 +22,10 @@ class AuthController extends Controller
         }
         return back()->with('error', __('web/admin/login.credintial_not_found'));
     }
+
+    public function logout()
+    {
+        auth()->logout();
+        return back();
+    }
 }

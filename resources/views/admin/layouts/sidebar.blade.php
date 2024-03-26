@@ -2,6 +2,19 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar sidebar-scroll">
     <div class="main-sidemenu">
+        <div class="app-sidebar__user clearfix">
+            <div class="dropdown user-pro-body">
+                <div class="">
+                    <img alt="user-img" class="avatar avatar-xl brround"
+                        src="{{ asset('assets/admin/img/faces/6.jpg') }}">
+                    <span class="avatar-status profile-status bg-green"></span>
+                </div>
+                <div class="user-info">
+                    <h4 class="font-weight-semibold mt-3 mb-0">{{ auth()->user()->name }}</h4>
+                    <span class="mb-0 text-muted">{{ auth()->user()->email }}</span>
+                </div>
+            </div>
+        </div>
         <ul class="side-menu">
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('admin.index') }}">

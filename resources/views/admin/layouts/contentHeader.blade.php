@@ -269,38 +269,34 @@
                             </path>
                         </svg></a>
                 </div> --}}
-                {{-- <div class="dropdown main-profile-menu nav nav-item nav-link">
+                <div class="dropdown main-profile-menu nav nav-item nav-link">
                     <a class="profile-user d-flex" href="">
                         <img alt=""
-                            src="{{ isset(auth('admin')->user()->image->image) ? asset('storage/' . auth('admin')->user()->image->image) : asset('assets/admin/img/faces/6.jpg') }}">
+                            src="{{ asset('assets/admin/img/faces/6.jpg') }}">
                     </a>
                     <div class="dropdown-menu">
                         <div class="main-header-profile bg-primary p-3">
                             <div class="d-flex wd-100p">
                                 <div class="main-img-user">
                                     <img alt=""
-                                        src="{{ isset(auth('admin')->user()->image->image) ? asset('storage/' . auth('admin')->user()->image->image) : asset('assets/admin/img/faces/6.jpg') }}"
+                                        src="{{ asset('assets/admin/img/faces/6.jpg') }}"
                                         class="">
                                 </div>
                                 <div class="ml-3 my-auto">
-                                    <h6>{{ auth('admin')->user()->name }}</h6>
-                                    <span>{{ auth('admin')->user()->email }}</span>
+                                    <h6>{{ auth()->user()->name }}</h6>
+                                    <span>{{ auth()->user()->email }}</span>
                                 </div>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="{{ route('admin.profile.index') }}">
-                            <i class="bx bx-user-circle"></i>
-                            {{ __('admin/home/header.profile') }}
-                        </a>
                         <form action="{{ route('admin.auth.logout') }}" method="post">
                             @csrf
                             <button class="dropdown-item" type="submit">
                                 <i class="bx bx-log-out"></i>
-                                {{ __('admin/home/header.sign_out') }}
+                                {{ __('web/admin/login.sign_out') }}
                             </button>
                         </form>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>

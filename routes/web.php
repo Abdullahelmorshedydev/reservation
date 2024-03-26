@@ -31,4 +31,7 @@ Route::middleware('auth')->prefix('/admin')->as('admin.')->group(function () {
 
     // Movie Routes
     Route::resource('movies', MovieController::class);
+
+    // Logout Route
+    Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });

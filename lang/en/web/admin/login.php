@@ -10,5 +10,6 @@ return [
     'password_place' => 'Enter Your Password',
     'sign_in' => 'Sign In',
     'credintial_not_found' => 'Credintial Not Found',
+    'sign_out' => 'Sign Out',
 
 ];
