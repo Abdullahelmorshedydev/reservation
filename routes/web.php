@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\Admin\AuthController;
 use App\Http\Controllers\Web\Admin\HomeController;
 use App\Http\Controllers\Web\Admin\MovieController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Admin Routes
-Route::prefix('/admin')->as('admin.')->group(function () {
+// Guest Routes
+Route::controller(AuthController::class)->middleware('guest')->prefix('/auth')->as('auth.')->group(function () {
+
+    Route::get('/login', 'login')->name('login.show');
+    Route::post('/login', 'store')->name('login.store');
+});
+
+// Auth Routes
+Route::middleware('auth')->prefix('/admin')->as('admin.')->group(function () {
     // Home page route
     Route::get('/', HomeController::class)->name('index');
 
