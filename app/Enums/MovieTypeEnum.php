@@ -19,8 +19,8 @@ enum MovieTypeEnum: int
     {
         return match ($this)
         {
-            self::ACTION => 'Action',
-            self::ROMANTIC => 'Romantic',
+            self::ACTION => __('web/admin/enums.action'),
+            self::ROMANTIC => __('web/admin/enums.romantic'),
         };
     }
 }

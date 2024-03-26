@@ -19,8 +19,8 @@ enum MovieStatusEnum: int
     {
         return match ($this)
         {
-            self::ACTIVE => 'Active',
-            self::DESACTIVE => 'DesActive',
+            self::ACTIVE => __('web/admin/enums.active'),
+            self::DESACTIVE => __('web/admin/enums.desactive'),
         };
     }
 }

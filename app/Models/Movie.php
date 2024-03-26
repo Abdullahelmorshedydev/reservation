@@ -5,11 +5,14 @@ namespace App\Models;
 use App\Enums\MovieTypeEnum;
 use App\Enums\MovieStatusEnum;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Movie extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+
+    public $translatable = ['name', 'slug', 'description'];
 
     protected $fillable = [
         'name',
@@ -22,7 +25,8 @@ class Movie extends Model
 
     public function getRouteKeyName()
     {
-        return "slug";
+        $locale = app()->getLocale();
+        return "slug->{$locale}";
     }
 
     protected $casts = [

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Enums\MovieTypeEnum;
 use App\Enums\MovieStatusEnum;
+use App\Traits\TranslateTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class MovieFactory extends Factory
 {
+    use TranslateTrait;
     /**
      * Define the model's default state.
      *
@@ -19,9 +21,9 @@ class MovieFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->sentence(1),
-            'slug' => str_replace(' ', '-', fake()->sentence(1)),
-            'description' => fake()->paragraph(),
+            'name' => TranslateTrait::translate(fake()->sentence(1), fake()->sentence(1)),
+            'slug' => TranslateTrait::translate(fake()->sentence(1), fake()->sentence(1), true),
+            'description' => TranslateTrait::translate(fake()->paragraph(), fake()->paragraph()),
             'price' => 100.00,
             'type' => fake()->randomElement(MovieTypeEnum::cases()),
             'status' => fake()->randomElement(MovieStatusEnum::cases()),

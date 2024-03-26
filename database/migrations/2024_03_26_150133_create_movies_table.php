@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description');
+            $table->json('name');
+            $table->json('slug');
+            $table->json('description');
             $table->decimal('price');
             $table->tinyInteger('type');
             $table->tinyInteger('status');
