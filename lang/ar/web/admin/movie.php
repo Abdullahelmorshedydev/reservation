@@ -30,5 +30,8 @@ return [
     'description' => 'الوصف',
     'action' => 'العمليات',
     'dashboard' => 'لوحة التحكم',
+    'create_success' => 'تم اضافة الفيلم بنجاح',
+    'update_success' => 'تم تعديل الفيلم بنجاح',
+    'delete_success' => 'تم حذف الفيلم بنجاح',
 
 ];

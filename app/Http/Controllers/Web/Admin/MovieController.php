@@ -24,7 +24,7 @@ class MovieController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(MovieService $movieService)
+    public function create()
     {
         $status = MovieStatusEnum::cases();
         $types = MovieTypeEnum::cases();
@@ -37,7 +37,7 @@ class MovieController extends Controller
     public function store(StoreMovieRequest $request, MovieService $movieService)
     {
         $movieService->store($request->validated());
-        return back()->with('success', 'Movie Created Successfully');
+        return back()->with('success', __('web/admin/movie.create_success'));
     }
 
     /**
@@ -64,7 +64,7 @@ class MovieController extends Controller
     public function update(UpdateMovieRequest $request, Movie $movie, MovieService $movieService)
     {
         $movieService->update($movie, $request->validated());
-        return redirect()->route('admin.movies.index')->with('success', 'Movie Updated Successfully');
+        return redirect()->route('admin.movies.index')->with('success', __('web/admin/movie.update_success'));
     }
 
     /**
@@ -73,6 +73,6 @@ class MovieController extends Controller
     public function destroy(Movie $movie, MovieService $movieService)
     {
         $movieService->destroy($movie);
-        return back()->with('success', 'Movie Deleted Successfully');
+        return back()->with('success', __('web/admin/movie.delete_success'));
     }
 }

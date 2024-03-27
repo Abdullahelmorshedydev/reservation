@@ -30,5 +30,8 @@ return [
     'description' => 'Description',
     'action' => 'Action',
     'dashboard' => 'Dashboard',
+    'create_success' => 'Movie Created Successfully',
+    'update_success' => 'Movie Updated Successfully',
+    'delete_success' => 'Movie Deleted Successfully',
 
 ];

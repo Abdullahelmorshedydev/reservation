@@ -2,8 +2,6 @@
 
 namespace App\Services\Admin;
 
-use App\Enums\MovieStatusEnum;
-use App\Enums\MovieTypeEnum;
 use App\Models\Movie;
 
 class MovieService

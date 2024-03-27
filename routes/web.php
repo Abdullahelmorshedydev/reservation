@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Admin\AuthController;
 use App\Http\Controllers\Web\Admin\HomeController;
 use App\Http\Controllers\Web\Admin\MovieController;
+use App\Http\Controllers\Web\Admin\ShowtimeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,11 @@ Route::middleware('auth')->prefix('/admin')->as('admin.')->group(function () {
     // Movie Routes
     Route::resource('movies', MovieController::class);
 
+    // Showtime Routes
+    Route::resource('showtimes', ShowtimeController::class)->except('show');
+
     // Logout Route
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
+
+abort(404, 'Not Found');
