@@ -52,6 +52,7 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+                            <input type="hidden" name="middlename">
                             <div class="mb-3">
                                 <div class="title mb-2"><i
                                         class="fa-solid fa-user"></i><span>{{ __('web/site/attendee.lastname_label') }}</span>

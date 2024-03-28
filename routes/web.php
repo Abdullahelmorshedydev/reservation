@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\Site\GetMoviesController;
 use App\Http\Controllers\Web\Admin\EventdayController;
 use App\Http\Controllers\Web\Admin\ShowtimeController;
 use App\Http\Controllers\Api\Site\GetShowtimesController;
+use App\Http\Controllers\Web\Admin\AttendeeController as AdminAttendeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,9 @@ Route::middleware('auth')->prefix('/admin')->as('admin.')->group(function () {
 
     // Eventday Routes
     Route::resource('eventdays', EventdayController::class);
+
+    // ِAttendee Routes
+    Route::resource('attendees', AdminAttendeeController::class)->only('index', 'destroy');
 
     // Logout Route
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');

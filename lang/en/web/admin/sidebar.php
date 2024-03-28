@@ -12,6 +12,7 @@ return [
     'eventdays' => 'Eventdays',
     'all_eventdays' => 'All Eventdays',
     'create_eventday' => 'Create New Eventday',
+    'attendees' => 'Attendees',
     'reserve' => 'Reserve',
 
 ];

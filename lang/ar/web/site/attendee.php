@@ -19,5 +19,6 @@ return [
     'showtime_label' => 'موعد الحفلة',
     'showtime_place' => 'اختر موعد الحفلة',
     'submit' => 'ارسال',
+    'some_thing_wrong' => 'خطأ ما',
 
 ];

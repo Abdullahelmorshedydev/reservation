@@ -31,6 +31,7 @@ class StoreAttendeeRequest extends FormRequest
         return [
             'firstname' => ['required', 'string', 'min:3', 'max:255'],
             'lastname' => ['required', 'string', 'min:3', 'max:255'],
+            'middlename' => ['nullable'],
             'name' => ['required'],
             'email' => ['required', 'email:rfc', 'regex:/(.+)@(.+)\.(.+)/i', 'min:3', 'max:255'],
             'phone' => ['required', 'min:9', 'max:20'],

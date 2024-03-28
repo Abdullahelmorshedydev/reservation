@@ -19,5 +19,6 @@ return [
     'showtime_label' => 'Showtime',
     'showtime_place' => 'Choose Showtime',
     'submit' => 'Send Your Request',
+    'some_thing_wrong' => 'Something Wrong',
 
 ];
