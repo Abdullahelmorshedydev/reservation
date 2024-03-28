@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             // MovieTableSeeder::class,
             // UserTableSeeder::class,
             // ShowtimeTableSeeder::class,
-            EventdayTableSeeder::class,
+            // EventdayTableSeeder::class,
+            AttendeeTableSeeder::class,
         ]);
     }
 }
