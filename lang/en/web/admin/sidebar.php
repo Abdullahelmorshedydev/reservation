@@ -9,6 +9,9 @@ return [
     'showtimes' => 'Showtimes',
     'all_showtimes' => 'All Showtimes',
     'create_showtime' => 'Create New Showtime',
+    'eventdays' => 'Eventdays',
+    'all_eventdays' => 'All Eventdays',
+    'create_eventday' => 'Create New Eventday',
     'reserve' => 'Reserve',
 
 ];

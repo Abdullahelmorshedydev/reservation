@@ -61,6 +61,6 @@ class ShowtimeController extends Controller
     public function destroy(Showtime $showtime, ShowtimeService $showtimeService)
     {
         $showtimeService->destroy($showtime);
-        return back()->with('success', __('web/admin/showtime.delete_success'));
+        return redirect()->route('admin.showtimes.index')->with('success', __('web/admin/showtime.delete_success'));
     }
 }

@@ -42,6 +42,8 @@ class StoreMovieRequest extends FormRequest
             'description_en' => ['required', 'string', 'min:3'],
             'description_ar' => ['required', 'string', 'min:3'],
             'description' => ['array'],
+            'showtimes' => ['required', 'array'],
+            'showtimes.*' => ['exists:showtimes,id'],
             'price' => ['required', 'numeric'],
             'type' => ['required', 'integer', Rule::in(MovieTypeEnum::cases())],
             'status' => ['required', 'integer', Rule::in(MovieStatusEnum::cases())],

@@ -33,4 +33,14 @@ class Movie extends Model
         'type' => MovieTypeEnum::class,
         'status' => MovieStatusEnum::class,
     ];
+
+    public function showtimes()
+    {
+        return $this->belongsToMany(Showtime::class)->withTimestamps();
+    }
+
+    public function eventdays()
+    {
+        return $this->belongsToMany(Eventday::class)->withTimestamps();
+    }
 }

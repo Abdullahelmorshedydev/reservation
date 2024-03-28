@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Enums\MovieStatusEnum;
 use App\Enums\MovieTypeEnum;
+use App\Enums\ShowtimeStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\Admin\Movie\StoreMovieRequest;
 use App\Http\Requests\Web\Admin\Movie\UpdateMovieRequest;
 use App\Models\Movie;
+use App\Models\Showtime;
 use App\Services\Admin\MovieService;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,8 @@ class MovieController extends Controller
     {
         $status = MovieStatusEnum::cases();
         $types = MovieTypeEnum::cases();
-        return view('admin.pages.movies.create', compact('status', 'types'));
+        $showtimes = Showtime::where('status', ShowtimeStatusEnum::ACTIVE->value)->get();
+        return view('admin.pages.movies.create', compact('status', 'types', 'showtimes'));
     }
 
     /**
@@ -55,7 +58,8 @@ class MovieController extends Controller
     {
         $status = MovieStatusEnum::cases();
         $types = MovieTypeEnum::cases();
-        return view('admin.pages.movies.edit', compact('movie', 'status', 'types'));
+        $showtimes = Showtime::where('status', ShowtimeStatusEnum::ACTIVE->value)->get();
+        return view('admin.pages.movies.edit', compact('movie', 'status', 'types', 'showtimes'));
     }
 
     /**
@@ -73,6 +77,6 @@ class MovieController extends Controller
     public function destroy(Movie $movie, MovieService $movieService)
     {
         $movieService->destroy($movie);
-        return back()->with('success', __('web/admin/movie.delete_success'));
+        return redirect()->route('admin.movies.index')->with('success', __('web/admin/movie.delete_success'));
     }
 }

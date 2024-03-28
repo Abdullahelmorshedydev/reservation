@@ -78,6 +78,27 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label>{{ __('web/admin/sidebar.showtimes') }}:</label>
+                                    <div class="row">
+                                        @foreach ($showtimes as $showtime)
+                                            <div class="col-12">
+                                                <input name="showtimes[]" type="checkbox" value="{{ $showtime->id }}"
+                                                    id="{{ $showtime->id }}"
+                                                    @foreach ($movie->showtimes as $show)
+                                                        @if ($show->id == $showtime->id)
+                                                            {{ 'checked' }}
+                                                        @endif
+                                                    @endforeach>
+                                                <label
+                                                    for="{{ $showtime->id }}">{{ $showtime->start_time . ' : ' . $showtime->end_time }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    @error('showtimes')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">

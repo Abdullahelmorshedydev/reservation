@@ -2,23 +2,23 @@
 
 namespace App\Services\Admin;
 
-use App\Models\Movie;
+use App\Models\Eventday;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
-class MovieService
+class EventdayService
 {
     public function index()
     {
-        return Movie::paginate();
+        return Eventday::paginate();
     }
 
     public function store($request)
     {
         try {
             DB::beginTransaction();
-            $movie = Movie::create($request);
-            $movie->showtimes()->attach($request['showtimes']);
+            $eventday = Eventday::create($request);
+            $eventday->movies()->attach($request['movies']);
             DB::commit();
             return true;
         } catch (Exception $e) {
@@ -27,12 +27,12 @@ class MovieService
         }
     }
 
-    public function update($movie, $request)
+    public function update($eventday, $request)
     {
         try {
             DB::beginTransaction();
-            $movie->update($request);
-            $movie->showtimes()->sync($request['showtimes']);
+            $eventday->update($request);
+            $eventday->movies()->sync($request['movies']);
             DB::commit();
             return true;
         } catch (Exception $e) {
@@ -41,12 +41,12 @@ class MovieService
         }
     }
 
-    public function destroy($movie)
+    public function destroy($eventday)
     {
         try {
             DB::beginTransaction();
-            $movie->showtimes()->detach();
-            $movie->delete();
+            $eventday->movies()->detach();
+            $eventday->delete();
             DB::commit();
             return true;
         } catch (Exception $e) {
