@@ -3,7 +3,7 @@
 To get started, clone this repository.
 
 ```
-git clone https://github.com/Abdullahelmorshedydev/telescope.git
+git clone https://github.com/Abdullahelmorshedydev/reservation.git
 ```
 
 Next, copy your `.env.example` file as `.env` and configure your Database connection.
